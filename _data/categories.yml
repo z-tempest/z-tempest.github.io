@@ -1,0 +1,10 @@
+# Category sections shown on the home page, in this order, below "Recent".
+#
+#   slug  = the category name used in a post's front matter (`categories:`) -
+#           must match exactly, including capitalisation
+#   title = the heading displayed on the page (rename freely)
+#
+# A section only appears once at least one post is in that category.
+# Note: Jekyll puts a post's categories into its URL (e.g. /jekyll/update/2026/10/01/title.html).
+- slug: prognostics
+  title: Prognostics

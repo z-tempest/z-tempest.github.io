@@ -1,0 +1,17 @@
+{%- assign image_card = page.image_cards[include.index] -%}
+<figure class="image-card" {% if image_card.images.size>
+  1 %}data-rotate{% endif %}>
+  <div class="image-card__stack">
+    {%- for img in image_card.images -%}
+    <img
+      class="image-card__img{% if forloop.first %} is-active{% endif %}"
+      src="{{ img | relative_url }}"
+      alt="{{ image_card.alt | default: page.title | escape }}"
+      loading="lazy"
+    />
+    {%- endfor -%}
+  </div>
+  {%- if image_card.caption -%}
+  <figcaption>{{ image_card.caption }}</figcaption>
+  {%- endif -%}
+</figure>

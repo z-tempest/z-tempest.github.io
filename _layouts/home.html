@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    <div class="blog-block">
+      <h2 class="post-list-heading">Recent</h2>
+      <div class="post-grid">
+        {%- for post in site.posts limit: 3 %}
+        {% include post-card.html post=post %}
+        {%- endfor %}
+      </div>
+
+      {%- comment -%} Category sections: edit _data/categories.yml {%- endcomment -%}
+      {%- for category in site.data.categories %}
+        {%- assign category_posts = site.categories[category.slug] %}
+        {%- if category_posts.size > 0 %}
+      <h2 class="post-list-heading">{{ category.title | escape }}</h2>
+      <div class="post-grid">
+          {%- for post in category_posts %}
+        {% include post-card.html post=post %}
+          {%- endfor %}
+      </div>
+        {%- endif %}
+      {%- endfor %}
+    </div>
+  </div>
+</main>
